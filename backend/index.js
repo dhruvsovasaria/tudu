@@ -1,7 +1,10 @@
 const express = require("express");
-const { createTodo, updateTodo } = require("../backend/types"); // Assuming updateTodo is defined here as well
-const { todo } = require("./db"); // Assuming this is the correct way to import your database model
+const { createTodo, updateTodo } = require("../backend/types");
+const cors = require("cors");
+const { todo } = require("./db");
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.post("/todo", async (req, res) => {
